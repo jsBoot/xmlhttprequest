@@ -20,7 +20,7 @@
 	'use strict';
 
 	// Save reference to earlier defined object implementation (if any)
-	var oXMLHttpRequest = window.XMLHttpRequest;
+	var OXMLHttpRequest = window.XMLHttpRequest;
 
 	// Define on browser type
 	var bGecko  = !!window.controllers;
@@ -28,20 +28,20 @@
 	var bIE7    = eval('/*@cc_on @_jscript_version <= 7 && !@*/false');
 
 	// Enables "XMLHttpRequest()" call next to "new XMLHttpRequest()"
-	function fXMLHttpRequest() {
-		this._object  = oXMLHttpRequest && !bIE7 ? new oXMLHttpRequest : new window.ActiveXObject("Microsoft.XMLHTTP");
+	function FXMLHttpRequest() {
+		this._object  = OXMLHttpRequest && !bIE7 ? new OXMLHttpRequest() : new window.ActiveXObject('Microsoft.XMLHTTP');
 		this._listeners = [];
 	}
 
 	// Constructor
 	function cXMLHttpRequest() {
-		return new fXMLHttpRequest;
+		return new FXMLHttpRequest();
 	}
-	cXMLHttpRequest.prototype = fXMLHttpRequest.prototype;
+	cXMLHttpRequest.prototype = FXMLHttpRequest.prototype;
 
 	// BUGFIX: Firefox with Firebug installed would break pages if not executed
-	if (bGecko && oXMLHttpRequest.wrapped) {
-		cXMLHttpRequest.wrapped = oXMLHttpRequest.wrapped;
+	if (bGecko && OXMLHttpRequest.wrapped) {
+		cXMLHttpRequest.wrapped = OXMLHttpRequest.wrapped;
 	}
 
 	// Constants
