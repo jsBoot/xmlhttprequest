@@ -330,7 +330,7 @@
 
 	// EventTarget interface implementation
 	cXMLHttpRequest.prototype.addEventListener  = function(sName, fHandler, bUseCapture) {
-		for (var nIndex = 0, oListener; oListener = this._listeners[nIndex]; nIndex++) {
+		for (var nIndex = 0, oListener; (oListener = this._listeners[nIndex]); nIndex++) {
 			if (oListener[0] == sName && oListener[1] == fHandler && oListener[2] == bUseCapture) {
 				return;
 			}
@@ -341,7 +341,7 @@
 	};
 
 	cXMLHttpRequest.prototype.removeEventListener = function(sName, fHandler, bUseCapture) {
-		for (var nIndex = 0, oListener; oListener = this._listeners[nIndex]; nIndex++) {
+		for (var nIndex = 0, oListener; (oListener = this._listeners[nIndex]); nIndex++) {
 			if (oListener[0] == sName && oListener[1] == fHandler && oListener[2] == bUseCapture) {
 				break;
 			}
@@ -374,7 +374,7 @@
 
 
 		// Execute listeners
-		for (var nIndex = 0, oListener; oListener = this._listeners[nIndex]; nIndex++) {
+		for (var nIndex = 0, oListener; (oListener = this._listeners[nIndex]); nIndex++) {
 			if (oListener[0] == oEventPseudo.type && !oListener[2]) {
 				(oListener[1].handleEvent || oListener[1]).apply(this, [oEventPseudo]);
 			}
@@ -384,11 +384,11 @@
 
 	//
 	cXMLHttpRequest.prototype.toString  = function() {
-		return '[' + "object" + ' ' + "XMLHttpRequest" + ']';
+		return '[' + 'object' + ' ' + 'XMLHttpRequest' + ']';
 	};
 
 	cXMLHttpRequest.toString  = function() {
-		return '[' + "XMLHttpRequest" + ']';
+		return '[' + 'XMLHttpRequest' + ']';
 	};
 
 	/**
