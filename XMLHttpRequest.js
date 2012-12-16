@@ -472,7 +472,7 @@
 			'type':       "readystatechange",
 			'bubbles':    false,
 			'cancelable': false,
-			'timeStamp':  new Date + 0
+			'timeStamp':  new Date() + 0
 		});
 	}
 
@@ -505,7 +505,7 @@
 
 	function fCleanTransport(oRequest) {
 		// BUGFIX: IE - memory leak (on-page leak)
-		oRequest._object.onreadystatechange = new window.Function;
+		oRequest._object.onreadystatechange = new window.Function();
 	}
 
 	// Internet Explorer 5.0 (missing apply)
