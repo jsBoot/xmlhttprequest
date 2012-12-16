@@ -277,7 +277,7 @@
 		 * if (this._async) {
 		 * 	fQueue_add(this);
 		 * } else { */
-		fXMLHttpRequest_send(this);
+		fXMLHttpRequestSend(this);
 		 /**
 		 * }
 		 */
@@ -438,7 +438,7 @@
 	 */
 
 	// Helper function
-	function fXMLHttpRequest_send(oRequest) {
+	function fXMLHttpRequestSend(oRequest) {
 		oRequest._object.send(oRequest._data);
 
 		// BUGFIX: Gecko - missing readystatechange calls in synchronous requests
