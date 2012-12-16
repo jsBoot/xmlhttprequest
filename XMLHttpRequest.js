@@ -66,7 +66,7 @@
 	cXMLHttpRequest.prototype.statusText    = '';
 
 	// Priority proposal
-	cXMLHttpRequest.prototype.priority    = "NORMAL";
+	cXMLHttpRequest.prototype.priority    = 'NORMAL';
 
 	// Instance-level Events Handlers
 	cXMLHttpRequest.prototype.onreadystatechange  = null;
@@ -81,7 +81,7 @@
 	cXMLHttpRequest.prototype.open  = function(sMethod, sUrl, bAsync, sUser, sPassword) {
 		// http://www.w3.org/TR/XMLHttpRequest/#the-open-method
 		var sLowerCaseMethod = sMethod.toLowerCase();
-		if (sLowerCaseMethod == "connect" || sLowerCaseMethod == "trace" || sLowerCaseMethod == "track") {
+		if (sLowerCaseMethod == 'connect' || sLowerCaseMethod == 'trace' || sLowerCaseMethod == 'track') {
 			// Using a generic error and an int - not too sure all browsers support correctly
 			// http://dvcs.w3.org/hg/domcore/raw-file/tip/Overview.html#securityerror, so, this is safer
 			// XXX should do better than that, but this is OT to XHR.
@@ -113,7 +113,7 @@
 					oRequest.abort();
 				}
 			};
-			window.attachEvent("onunload", fOnUnload);
+			window.attachEvent('onunload', fOnUnload);
 		}
 
 		// Add method sniffer
@@ -237,7 +237,7 @@
 
 				// BUGFIX: IE - memory leak in interrupted
 				if (bIE && bAsync) {
-					window.detachEvent("onunload", fOnUnload);
+					window.detachEvent('onunload', fOnUnload);
 				}
 
 				// BUGFIX: Some browsers (Internet Explorer, Gecko) fire OPEN readystate twice
@@ -265,8 +265,8 @@
 		// BUGFIX: Gecko - fails sending Element (this is up to the implementation either to standard)
 		if (vData && vData.nodeType) {
 			vData = window.XMLSerializer ? new window.XMLSerializer().serializeToString(vData) : vData.xml;
-			if (!this._headers["Content-Type"]) {
-				this._object.setRequestHeader("Content-Type", "application/xml");
+			if (!this._headers['Content-Type']) {
+				this._object.setRequestHeader('Content-Type', 'application/xml');
 			}
 		}
 
@@ -368,7 +368,7 @@
 		};
 
 		// Execute onreadystatechange
-		if (oEventPseudo.type == "readystatechange" && this.onreadystatechange) {
+		if (oEventPseudo.type == 'readystatechange' && this.onreadystatechange) {
 			(this.onreadystatechange.handleEvent || this.onreadystatechange).apply(this, [oEventPseudo]);
 		}
 
@@ -469,7 +469,7 @@
 
 		// Fake event
 		oRequest.dispatchEvent({
-			'type':       "readystatechange",
+			'type':       'readystatechange',
 			'bubbles':    false,
 			'cancelable': false,
 			'timeStamp':  new Date() + 0
@@ -480,8 +480,8 @@
 		var oDocument = oRequest.responseXML;
 		var sResponse = oRequest.responseText;
 		// Try parsing responseText
-		if (bIE && sResponse && oDocument && !oDocument.documentElement && oRequest.getResponseHeader("Content-Type").match(/[^\/]+\/[^\+]+\+xml/)) {
-			oDocument = new window.ActiveXObject("Microsoft.XMLDOM");
+		if (bIE && sResponse && oDocument && !oDocument.documentElement && oRequest.getResponseHeader('Content-Type').match(/[^\/]+\/[^\+]+\+xml/)) {
+			oDocument = new window.ActiveXObject('Microsoft.XMLDOM');
 			oDocument.async       = false;
 			oDocument.validateOnParse = false;
 			oDocument.loadXML(sResponse);
@@ -489,7 +489,7 @@
 
 		// Check if there is no error in document
 		if (oDocument){
-			if ((bIE && oDocument.parseError !== 0) || !oDocument.documentElement || (oDocument.documentElement && oDocument.documentElement.tagName == "parsererror")) {
+			if ((bIE && oDocument.parseError !== 0) || !oDocument.documentElement || (oDocument.documentElement && oDocument.documentElement.tagName == 'parsererror')) {
 				return null;
 			}
 		}
