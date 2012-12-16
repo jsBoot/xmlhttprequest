@@ -17,6 +17,7 @@
 */
 
 (function () {
+	'use strict';
 
 	// Save reference to earlier defined object implementation (if any)
 	var oXMLHttpRequest = window.XMLHttpRequest;

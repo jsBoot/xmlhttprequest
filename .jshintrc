@@ -1,0 +1,47 @@
+{
+
+  // Enforce camelCasing of props names
+  "camelcase": true,
+  // Warn about enumerations without hasOwnProperty calls
+  "forin": true,
+  // Enforce the use of parentheses around immediate function calls
+  "immed": true,
+  // Warn about late definition of local variables
+  "latedef": true,
+  // Requires capitalization of constructors
+  "newcap": true,
+  // Disallow callee on args - be ECMA strict ready
+  "noarg": true,
+  // Warn about empty blocks
+  "noempty": true,
+  // Warn about constructors missing a "new"
+  "nonew": true,
+  // String quoting style
+  "quotmark": "single",
+  // Warn about unsafe use of regexp
+  "regexp": true,
+  // Prohibit use of undeclared variables
+  "undef": true,
+  // Use strict
+  "strict": true,
+  // Prohibit trailing whitespaces
+  "trailing": true,
+  // Maximum number of parameters in a function
+  "maxparams": 5,
+  // Maximum depth
+  "maxdepth": 3,
+  // Maximum number of statements in a block
+  "maxstatements": 50,
+  // Maximum function complexity
+  "maxcomplexity": 25,
+  // Maximum line length
+  "maxlen": 170,
+  // Warn about unused variables
+  "unused": true,
+
+  // XXX may fix
+  // Due to the fact closure compiler removes comment, we can't use conditional compilation directly, hence the eval
+  "evil": true,
+
+  "browser": true
+}
