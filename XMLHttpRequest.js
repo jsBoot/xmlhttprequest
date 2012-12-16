@@ -24,8 +24,8 @@
 
 	// Define on browser type
 	var bGecko  = !!window.controllers;
-	var bIE     = !!window.document.namespaces;
-	var bIE7    = bIE && window.navigator.userAgent.match(/MSIE 7.0/);
+	var bIE     = eval('/*@cc_on!@*/false');
+	var bIE7    = eval('/*@cc_on @_jscript_version <= 7 && !@*/false');
 
 	// Enables "XMLHttpRequest()" call next to "new XMLHttpRequest()"
 	function fXMLHttpRequest() {
